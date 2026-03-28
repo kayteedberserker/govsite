@@ -192,7 +192,7 @@ export default function ContactPage() {
                       </svg>
                     </div>
                     <div>
-                      <p className="text-slate-900 font-bold text-lg">contact@campaign2027.com</p>
+                      <p className="text-slate-900 font-bold text-lg">info@buhariabdulfatai.com</p>
                       <p className="text-slate-500 text-sm font-medium mt-0.5">Average response: 24 hours</p>
                     </div>
                   </div>
