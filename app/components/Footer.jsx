@@ -103,7 +103,7 @@ export default function Footer() {
         {/* ================= BOTTOM BAR ================= */}
         <div className="pt-12 border-t border-slate-900 flex flex-col md:flex-row justify-between items-center gap-6">
           <p className="text-[11px] font-bold text-slate-600 tracking-widest uppercase text-center md:text-left">
-            &copy; 2027 Candidate Campaign Organization.
+            &copy; 2027 BUHARI A'FATAI Campaign Organization (BAFCO).
           </p>
           <button 
             onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
