@@ -1,26 +1,82 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/* app/globals.css */
+
+/* Add these lines to the bottom of your file */
+
+/* 1. The Scroll Left Animation */
+@keyframes scrollLeft {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-100%); }
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+/* 2. The Scroll Right Animation */
+@keyframes scrollRight {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(0); }
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+/* 3. The Utility Classes to trigger them */
+.animate-scroll-left {
+  animation: scrollLeft 60s linear infinite; /* Adjusted speed to be smoother */
+}
+
+.animate-scroll-right {
+  animation: scrollRight 60s linear infinite; /* Adjusted speed to be smoother */
+}
+
+/* 4. Pause on hover (Standard premium detail) */
+.gallery-row:hover .animate-scroll-left,
+.gallery-row:hover .animate-scroll-right {
+  animation-play-state: paused;
+}
+
+/* app/globals.css */
+
+@keyframes scrollLeft {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); } /* Changed to -50% because we doubled the items */
+}
+
+@keyframes scrollRight {
+  0% { transform: translateX(-50%); }
+  100% { transform: translateX(0); }
+}
+
+.animate-scroll-left {
+  animation: scrollLeft 60s linear infinite;
+}
+
+.animate-scroll-right {
+  animation: scrollRight 60s linear infinite;
+}
+
+.gallery-row:hover .animate-scroll-left,
+.gallery-row:hover .animate-scroll-right {
+  animation-play-state: paused;
+}
+
+/* --- THE BIG PICTURE LOGIC --- */
+
+/* Rows 1 & 3: Every 3rd item is a Large Portrait */
+.row-1 .gallery-item:nth-child(3n+1),
+.row-3 .gallery-item:nth-child(3n+1) {
+  width: 95vw;
+  aspect-ratio: 1 / 1.1;
+}
+
+/* Row 2: Every 4th item is a Large Landscape */
+.row-2 .gallery-item:nth-child(4n+1) {
+  width: 95vw;
+  aspect-ratio: 1.6 / 1;
+}
+
+@media (min-width: 768px) {
+  .row-1 .gallery-item:nth-child(3n+1),
+  .row-3 .gallery-item:nth-child(3n+1) {
+    width: 50vw;
   }
-}
-
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  .row-2 .gallery-item:nth-child(4n+1) {
+    width: 50vw;
+  }
 }
