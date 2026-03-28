@@ -127,12 +127,12 @@ export default function AboutClientWrapper({ heroImages, govPortrait }) {
             
             {/* The Text Column */}
             <div className="lg:col-span-7 prose prose-lg prose-slate">
-              <h2 className="text-3xl md:text-4xl font-black text-slate-900 mb-8 tracking-tight">Rooted in our communities. Built for this moment.</h2>
+              <h2 className="text-3xl md:text-4xl font-black text-slate-900 mb-8 tracking-tight">Rooted in Oyo State. Built for this moment.</h2>
               <p className="text-slate-600 leading-relaxed mb-6">
-                Born and raised in the heart of the capital, I learned the value of hard work and integrity from my parents. My father was a public school teacher, and my mother ran a small market stall. They taught me that leadership is not about title; it is about taking responsibility for your community.
+                Born and raised with deep roots in Ogbomosho, I learned the value of hard work, community, and integrity from a young age. I was taught early on that true leadership is not about acquiring a title; it is about taking profound responsibility for the welfare of your people.
               </p>
               <p className="text-slate-600 leading-relaxed mb-10">
-                After graduating with honors in Economics and serving in the private sector for over two decades, I saw firsthand how disconnected our current policies are from the realities of everyday business owners, farmers, and youth. We don't just need better politicians; we need better managers of our state's vast resources.
+                Over the past two decades, I have had the distinct honor of serving our great state across multiple capacities—from the House of Representatives to the State Executive Council, and the Senate. I have seen firsthand the incredible potential of our state, but I have also seen where disconnected policies fail our farmers, entrepreneurs, and youth. We don't just need better politicians; we need proven managers of our state's vast resources.
               </p>
 
               <blockquote className="border-l-4 border-emerald-600 pl-6 py-2 my-12 bg-slate-50 rounded-r-2xl shadow-sm">
@@ -142,7 +142,7 @@ export default function AboutClientWrapper({ heroImages, govPortrait }) {
               </blockquote>
 
               <p className="text-slate-600 leading-relaxed">
-                My transition into public service was driven by a simple conviction: If competent people step back, the incompetent will step up. For the past six years serving as [Previous Title/Role], I have fought to reduce bureaucratic waste, champion tech-driven education, and empower local agriculture. But the work is not finished.
+                My enduring commitment to public service is driven by a simple conviction: If competent people step back, progress halts. Whether it was driving ICT development, managing local government affairs, or overseeing aviation infrastructure, my focus has always been on delivering tangible results. But the work is far from finished. It is time to bring that wealth of experience back home to lead Oyo State into a new era.
               </p>
             </div>
 
@@ -169,51 +169,86 @@ export default function AboutClientWrapper({ heroImages, govPortrait }) {
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-5xl font-black text-slate-900 tracking-tight">A Record of Results</h2>
-            <p className="text-slate-500 mt-4 font-medium uppercase tracking-widest text-sm">Actions Speak Louder Than Promises</p>
+            <p className="text-slate-500 mt-4 font-medium uppercase tracking-widest text-sm">Decades of Dedicated Public Service</p>
           </div>
 
           <div className="relative border-l-2 border-emerald-200 ml-4 md:ml-1/2">
-            {/* Timeline Item 1 */}
+            
+            {/* Timeline Item 1: 2023 - 2027 */}
             <div className="mb-12 relative pl-8 md:pl-0">
               <div className="hidden md:block absolute left-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-emerald-600 border-4 border-slate-50 mt-1.5 z-10"></div>
               <div className="md:hidden absolute -left-[9px] w-4 h-4 rounded-full bg-emerald-600 border-4 border-slate-50 mt-1.5"></div>
               
               <div className="md:w-1/2 md:pr-12 md:text-right">
-                <span className="text-emerald-600 font-bold tracking-widest text-sm uppercase">2018 - 2022</span>
-                <h3 className="text-xl font-bold text-slate-900 mt-1 mb-2">Commissioner of Economic Planning</h3>
+                <span className="text-emerald-600 font-bold tracking-widest text-sm uppercase">2023 - 2027</span>
+                <h3 className="text-xl font-black text-slate-900 mt-1 mb-1">Member, House of Senate</h3>
+                <p className="text-slate-500 font-bold text-sm mb-3">Oyo North Senatorial District</p>
                 <p className="text-slate-600 text-sm leading-relaxed">
-                  Spearheaded the "State First" initiative, driving a 24% increase in foreign direct investment and streamlining the business registration process for thousands of SMEs.
+                  Serving as the Chairman of the Senate Committee on Aviation, driving critical legislative oversight and infrastructure development within the national aviation sector.
                 </p>
               </div>
             </div>
 
-            {/* Timeline Item 2 */}
+            {/* Timeline Item 2: 2019 - 2023 */}
             <div className="mb-12 relative pl-8 md:pl-0 flex justify-end">
               <div className="hidden md:block absolute left-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-emerald-600 border-4 border-slate-50 mt-1.5 z-10"></div>
               <div className="md:hidden absolute -left-[9px] w-4 h-4 rounded-full bg-emerald-600 border-4 border-slate-50 mt-1.5"></div>
               
               <div className="md:w-1/2 md:pl-12 text-left">
-                <span className="text-emerald-600 font-bold tracking-widest text-sm uppercase">2012 - 2018</span>
-                <h3 className="text-xl font-bold text-slate-900 mt-1 mb-2">CEO, State Development Bank</h3>
+                <span className="text-emerald-600 font-bold tracking-widest text-sm uppercase">2019 - 2023</span>
+                <h3 className="text-xl font-black text-slate-900 mt-1 mb-1">Member, House of Senate</h3>
+                <p className="text-slate-500 font-bold text-sm mb-3">Oyo North Senatorial District</p>
                 <p className="text-slate-600 text-sm leading-relaxed">
-                  Restructured the bank's loan portfolio to favor local agriculture and tech startups, creating an estimated 15,000 direct jobs across rural communities.
+                  Served as Chairman, Senate Committee on Land Transport, and Vice Chairman, Senate Committee on ICT and Cybercrime, spearheading transport modernization and digital security initiatives.
                 </p>
               </div>
             </div>
 
-             {/* Timeline Item 3 */}
-             <div className="relative pl-8 md:pl-0">
+             {/* Timeline Item 3: 2015 - 2019 */}
+             <div className="mb-12 relative pl-8 md:pl-0">
               <div className="hidden md:block absolute left-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-emerald-600 border-4 border-slate-50 mt-1.5 z-10"></div>
               <div className="md:hidden absolute -left-[9px] w-4 h-4 rounded-full bg-emerald-600 border-4 border-slate-50 mt-1.5"></div>
               
               <div className="md:w-1/2 md:pr-12 md:text-right">
-                <span className="text-emerald-600 font-bold tracking-widest text-sm uppercase">Early Career</span>
-                <h3 className="text-xl font-bold text-slate-900 mt-1 mb-2">Grassroots Organizer & Advocate</h3>
+                <span className="text-emerald-600 font-bold tracking-widest text-sm uppercase">2015 - 2019</span>
+                <h3 className="text-xl font-black text-slate-900 mt-1 mb-1">Member, House of Senate</h3>
+                <p className="text-slate-500 font-bold text-sm mb-3">Oyo North Senatorial District</p>
                 <p className="text-slate-600 text-sm leading-relaxed">
-                  Founded the Youth Empowerment Network, providing free vocational training and scholarships to over 5,000 underprivileged students in the capital.
+                  Served as Chairman of the Senate Committee on ICT and Cybercrime, and Vice Chairman of the Senate Committee on Industry, laying the legislative groundwork for Nigeria's expanding tech ecosystem.
                 </p>
               </div>
             </div>
+
+            {/* Timeline Item 4: 2011 - 2015 */}
+            <div className="mb-12 relative pl-8 md:pl-0 flex justify-end">
+              <div className="hidden md:block absolute left-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-emerald-600 border-4 border-slate-50 mt-1.5 z-10"></div>
+              <div className="md:hidden absolute -left-[9px] w-4 h-4 rounded-full bg-emerald-600 border-4 border-slate-50 mt-1.5"></div>
+              
+              <div className="md:w-1/2 md:pl-12 text-left">
+                <span className="text-emerald-600 font-bold tracking-widest text-sm uppercase">2011 - 2015</span>
+                <h3 className="text-xl font-black text-slate-900 mt-1 mb-1">Honourable Commissioner</h3>
+                <p className="text-slate-500 font-bold text-sm mb-3">Local Government and Chieftaincy Matters, Oyo State</p>
+                <p className="text-slate-600 text-sm leading-relaxed">
+                  Managed and mediated complex administrative and traditional affairs across local governments, ensuring grassroots stability, peace, and development across Oyo State.
+                </p>
+              </div>
+            </div>
+
+            {/* Timeline Item 5: 2003 - 2007 */}
+            <div className="relative pl-8 md:pl-0">
+              <div className="hidden md:block absolute left-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-emerald-600 border-4 border-slate-50 mt-1.5 z-10"></div>
+              <div className="md:hidden absolute -left-[9px] w-4 h-4 rounded-full bg-emerald-600 border-4 border-slate-50 mt-1.5"></div>
+              
+              <div className="md:w-1/2 md:pr-12 md:text-right">
+                <span className="text-emerald-600 font-bold tracking-widest text-sm uppercase">2003 - 2007</span>
+                <h3 className="text-xl font-black text-slate-900 mt-1 mb-1">Member, House of Representatives</h3>
+                <p className="text-slate-500 font-bold text-sm mb-3">Ogbomosho North/South/Ori Ire Federal Constituency</p>
+                <p className="text-slate-600 text-sm leading-relaxed">
+                  Began his legislative career representing the diverse voices of his constituency, directly advocating for federal projects and youth empowerment at the grassroots level.
+                </p>
+              </div>
+            </div>
+
           </div>
         </div>
       </section>
