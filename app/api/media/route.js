@@ -29,91 +29,134 @@ export async function GET(request) {
   }
 }
 
-// POST: Upload a new image or video (Protected)
+// POST: Upload new media, including optional Album arrays (Protected)
 export async function POST(request) {
   try {
-    // 1. SECURITY CHECK
     const session = await getServerSession(authOptions);
-    if (!session) {
-      return NextResponse.json({ success: false, error: 'Unauthorized access' }, { status: 401 });
-    }
+    if (!session) return NextResponse.json({ success: false, error: 'Unauthorized access' }, { status: 401 });
 
     await connectMongo();
-
     const data = await request.formData();
-    const file = data.get('image'); // This is the 'file' from your admin panel
+    
+    const file = data.get('image'); // Main Cover File
     const title = data.get('title');
     const description = data.get('description');
     const category = data.get('category'); 
+    const additionalImages = data.getAll('additionalImages'); // Array of extra album files
 
     if (!file || !title || !category) {
       return NextResponse.json({ success: false, error: 'Missing required fields' }, { status: 400 });
     }
 
-    // 2. CONVERT FILE TO BASE64
+    // 1. Upload Main Cover File
     const bytes = await file.arrayBuffer();
     const buffer = Buffer.from(bytes);
     const fileBase64 = `data:${file.type};base64,${buffer.toString('base64')}`;
 
-    // 3. CLOUDINARY UPLOAD (The Fix)
-    // We add 'resource_type: "auto"' so Cloudinary automatically detects if it's a video or image.
     const uploadResponse = await cloudinary.uploader.upload(fileBase64, {
       folder: `gubernatorial/${category}`, 
-      resource_type: "auto", // CRITICAL: This allows videos to upload
+      resource_type: "auto",
     });
 
-    // 4. SAVE TO DATABASE
+    // 2. Upload Additional Album Images (If any)
+    let albumImages = [];
+    if (additionalImages && additionalImages.length > 0) {
+      const uploadPromises = additionalImages.map(async (albumFile) => {
+        const aBytes = await albumFile.arrayBuffer();
+        const aBuffer = Buffer.from(aBytes);
+        const aBase64 = `data:${albumFile.type};base64,${aBuffer.toString('base64')}`;
+        
+        return cloudinary.uploader.upload(aBase64, {
+          folder: `gubernatorial/${category}/album`,
+          resource_type: "auto",
+        });
+      });
+
+      // Wait for all album images to upload concurrently
+      const results = await Promise.all(uploadPromises);
+      albumImages = results.map(res => ({
+        imageUrl: res.secure_url,
+        publicId: res.public_id
+      }));
+    }
+
+    // 3. Save to Database
     const newItem = await MediaItem.create({
       title,
       description,
       category,
       imageUrl: uploadResponse.secure_url,
       publicId: uploadResponse.public_id,
+      albumImages: albumImages // Add the new array!
     });
 
     return NextResponse.json({ success: true, data: newItem }, { status: 201 });
   } catch (error) {
-    console.error("CLOUDINARY_UPLOAD_ERROR:", error); // Log this to your terminal
-    return NextResponse.json({ 
-      success: false, 
-      error: error.message || 'Upload failed' 
-    }, { status: 500 });
+    console.error("CLOUDINARY_UPLOAD_ERROR:", error); 
+    return NextResponse.json({ success: false, error: error.message || 'Upload failed' }, { status: 500 });
   }
 }
 
-// DELETE: Remove an image/video (Protected)
+// PUT: Update Media Details (Protected)
+export async function PUT(request) {
+  try {
+    const session = await getServerSession(authOptions);
+    if (!session) return NextResponse.json({ success: false, error: 'Unauthorized access' }, { status: 401 });
+
+    await connectMongo();
+    const { id, title, description, category } = await request.json();
+
+    if (!id) return NextResponse.json({ success: false, error: 'Missing ID' }, { status: 400 });
+
+    const updatedItem = await MediaItem.findByIdAndUpdate(
+      id, 
+      { title, description, category }, 
+      { new: true }
+    );
+
+    return NextResponse.json({ success: true, data: updatedItem }, { status: 200 });
+  } catch (error) {
+    return NextResponse.json({ success: false, error: 'Update failed' }, { status: 500 });
+  }
+}
+
+// DELETE: Remove media AND all its attached album images (Protected)
 export async function DELETE(request) {
   try {
     const session = await getServerSession(authOptions);
-    if (!session) {
-      return NextResponse.json({ success: false, error: 'Unauthorized access' }, { status: 401 });
-    }
+    if (!session) return NextResponse.json({ success: false, error: 'Unauthorized access' }, { status: 401 });
 
     await connectMongo();
     
     const { searchParams } = new URL(request.url);
     const id = searchParams.get('id');
 
-    if (!id) {
-      return NextResponse.json({ success: false, error: 'Item ID is required' }, { status: 400 });
-    }
+    if (!id) return NextResponse.json({ success: false, error: 'Item ID is required' }, { status: 400 });
 
     const item = await MediaItem.findById(id);
-    if (!item) {
-      return NextResponse.json({ success: false, error: 'Item not found' }, { status: 404 });
-    }
+    if (!item) return NextResponse.json({ success: false, error: 'Item not found' }, { status: 404 });
 
-    // 5. DELETE FROM CLOUDINARY (Safety check for videos)
-    // For videos, destroy needs the resource_type as well.
+    // 1. Destroy the main cover image
     const isVideo = item.imageUrl.includes('/video/');
     await cloudinary.uploader.destroy(item.publicId, {
        resource_type: isVideo ? "video" : "image"
     });
+
+    // 2. Destroy all connected Album Images in Cloudinary
+    if (item.albumImages && item.albumImages.length > 0) {
+      const deletePromises = item.albumImages.map(img => {
+        const isAlbumVideo = img.imageUrl.includes('/video/');
+        return cloudinary.uploader.destroy(img.publicId, { resource_type: isAlbumVideo ? "video" : "image" });
+      });
+      await Promise.all(deletePromises);
+    }
     
+    // 3. Delete from database
     await MediaItem.findByIdAndDelete(id);
 
     return NextResponse.json({ success: true, message: 'Item deleted successfully' }, { status: 200 });
   } catch (error) {
+    console.error("MEDIA_DELETE_ERROR:", error);
     return NextResponse.json({ success: false, error: 'Deletion failed' }, { status: 500 });
   }
 }

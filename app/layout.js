@@ -18,7 +18,7 @@ const jetbrainsMono = JetBrains_Mono({
 
 // UPDATED: Public-facing metadata for SEO
 export const metadata = {
-  title: "Aspirant 2026 | Official Campaign",
+  title: "Candidate 2027 | Official Campaign",
   description: "Dedicated to progress, transparency, and sustainable development for our great state.",
 };
 

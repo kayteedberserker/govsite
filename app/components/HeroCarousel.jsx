@@ -10,7 +10,7 @@ export default function HeroCarousel({ mediaItems }) {
   const defaultItems = [
     {
       imageUrl: "https://images.unsplash.com/photo-1541872703-74c5e44368f9?q=80&w=2000&auto=format&fit=crop",
-      title: "A New Vision for 2026",
+      title: "A New Vision for Oyo",
       description: "Building a stronger, more resilient economy for every citizen."
     },
     {

@@ -68,10 +68,10 @@ export default function Navbar() {
                 </div>
                 <div className="flex flex-col leading-none">
                   <span className="font-extrabold text-xl text-slate-900 tracking-tight">
-                    Aspirant
+                    Candidate
                   </span>
                   <span className="font-bold text-[10px] text-emerald-700 tracking-[0.2em] uppercase mt-1">
-                    Campaign '26
+                    Campaign '27
                   </span>
                 </div>
               </Link>
@@ -113,10 +113,10 @@ export default function Navbar() {
                   <span className={`font-extrabold tracking-tight transition-colors duration-500 ${
                     scrolled ? 'text-xl text-slate-900' : 'text-2xl text-slate-900'
                   }`}>
-                    Aspirant
+                    Candidate
                   </span>
                   <span className="font-bold text-[10px] text-emerald-700 tracking-[0.2em] uppercase mt-1">
-                    Campaign '26
+                    Campaign '27
                   </span>
                 </div>
               </Link>

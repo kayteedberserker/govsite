@@ -10,23 +10,30 @@ const MediaItemSchema = new mongoose.Schema(
     },
     description: {
       type: String,
-      default: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.', // Default placeholder text
+      default: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
       trim: true,
     },
     category: {
       type: String,
       required: [true, 'Please specify the media category'],
-      // Added 'upload' for general hosting and 'governor' for the main portrait
-      enum: ['carousel', 'gallery', 'upload', 'governor'], 
+      enum: ['carousel', 'gallery', 'governor', 'upload'], 
     },
+    // The main cover image (or the only image if it's just a carousel/upload)
     imageUrl: {
       type: String,
       required: [true, 'Please provide an image URL'],
     },
     publicId: {
       type: String,
-      required: true, // Needed to delete the image from Cloudinary
+      required: true, 
     },
+    // NEW: Array to hold multiple images for Gallery Albums
+    albumImages: [
+      {
+        imageUrl: { type: String, required: true },
+        publicId: { type: String, required: true }
+      }
+    ]
   },
   { timestamps: true }
 );

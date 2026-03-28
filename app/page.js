@@ -55,7 +55,7 @@ export default async function HomePage() {
         </div>
         
         <h2 className="text-2xl md:text-3xl font-bold text-slate-400 tracking-widest uppercase mb-4">
-          Buhari AbdulFatai <span className="text-emerald-500">2026</span>
+          Buhari AbdulFatai <span className="text-emerald-500">2027</span>
         </h2>
 
         <h1 className="text-5xl md:text-7xl lg:text-8xl font-black text-white tracking-tighter uppercase italic leading-[0.95] mb-8">
@@ -69,7 +69,7 @@ export default async function HomePage() {
 
         <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
           <Link href="/about" className="bg-emerald-600 text-white px-10 py-4 rounded-full font-black tracking-widest uppercase text-sm hover:bg-emerald-500 transition-all shadow-[0_0_40px_rgba(5,150,105,0.3)] active:scale-95 flex items-center justify-center gap-2">
-            Meet The Aspirant
+            Meet The Candidate
           </Link>
           <Link href="/contact" className="bg-slate-800 border border-slate-700 text-white px-10 py-4 rounded-full font-black tracking-widest uppercase text-sm hover:bg-slate-700 transition-all active:scale-95 flex items-center justify-center">
             Volunteer Now
@@ -100,7 +100,7 @@ export default async function HomePage() {
               <div className="absolute -inset-4 bg-emerald-50 rounded-[3rem] transform -rotate-3 z-0"></div>
               <div className="relative z-10 rounded-3xl overflow-hidden aspect-[4/5] shadow-2xl border border-slate-100">
                 <img 
-                  src="https://res.cloudinary.com/dxqsvqhgl/image/upload/v1774701588/gubernatorial/gallery/ysclm7gnzxsojc4lz2eu.jpg" 
+                  src="https://res.cloudinary.com/dxqsvqhgl/image/upload/v1774707389/gubernatorial/governor/qd9z3mqi9ex93dhcsyyw.jpg" 
                   alt="Buhari AbdulFatai" 
                   className="w-full h-full object-cover"
                 />

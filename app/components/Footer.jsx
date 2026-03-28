@@ -2,7 +2,6 @@
 import Link from 'next/link';
 
 export default function Footer() {
-  const currentYear = new Date().getFullYear();
 
   return (
     <footer className="bg-slate-950 text-slate-400 pt-24 pb-12 border-t border-emerald-900/20 relative overflow-hidden">
@@ -20,7 +19,7 @@ export default function Footer() {
               </div>
               <div className="flex flex-col">
                 <span className="font-black text-3xl text-white tracking-tighter uppercase italic">
-                  Aspirant <span className="text-emerald-500">2026</span>
+                  Candidate <span className="text-emerald-500">2027</span>
                 </span>
                 <span className="text-[10px] font-bold tracking-[0.4em] text-emerald-600 uppercase">
                   Leading with Integrity
@@ -56,7 +55,7 @@ export default function Footer() {
             <h3 className="text-emerald-500 font-bold text-xs tracking-[0.2em] uppercase mb-8">Navigation</h3>
             <ul className="space-y-4">
               <li><Link href="/" className="hover:text-white transition-colors text-sm font-semibold">Home</Link></li>
-              <li><Link href="/about" className="hover:text-white transition-colors text-sm font-semibold">Meet the Aspirant</Link></li>
+              <li><Link href="/about" className="hover:text-white transition-colors text-sm font-semibold">Meet the Candidate</Link></li>
               <li><Link href="/gallery" className="hover:text-white transition-colors text-sm font-semibold">Campaign Gallery</Link></li>
               <li><Link href="/contact" className="hover:text-white transition-colors text-sm font-semibold">Get in Touch</Link></li>
             </ul>
@@ -94,7 +93,7 @@ export default function Footer() {
                   </svg>
                 </div>
                 <div>
-                  <p className="text-sm font-bold text-white">contact@campaign2026.com</p>
+                  <p className="text-sm font-bold text-white">contact@campaign2027.com</p>
                 </div>
               </div>
             </div>
@@ -104,7 +103,7 @@ export default function Footer() {
         {/* ================= BOTTOM BAR ================= */}
         <div className="pt-12 border-t border-slate-900 flex flex-col md:flex-row justify-between items-center gap-6">
           <p className="text-[11px] font-bold text-slate-600 tracking-widest uppercase text-center md:text-left">
-            &copy; {currentYear} Aspirant Campaign Organization.
+            &copy; 2027 Candidate Campaign Organization.
           </p>
           <button 
             onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}

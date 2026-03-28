@@ -58,7 +58,7 @@ export default async function SingleUpdatePage({ params }) {
               </div>
               <div>
                 <p className="text-sm font-bold text-slate-900">Official Campaign Desk</p>
-                <p className="text-xs font-medium text-slate-500">Aspirant 2026 Media Team</p>
+                <p className="text-xs font-medium text-slate-500">Candidate 2027 Media Team</p>
               </div>
             </div>
           </div>

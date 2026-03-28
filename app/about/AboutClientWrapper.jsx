@@ -69,7 +69,7 @@ export default function AboutClientWrapper({ heroImages, govPortrait }) {
             
             <div className="max-w-2xl">
               <span className="text-emerald-500 font-bold tracking-[0.3em] uppercase text-sm mb-4 block">
-                Meet The Aspirant
+                Meet The Candidate
               </span>
               <h1 className="text-5xl lg:text-7xl font-black text-white tracking-tighter leading-[1.1] mb-6">
                 A lifetime of <span className="text-emerald-500 italic">service.</span> <br />
@@ -112,7 +112,7 @@ export default function AboutClientWrapper({ heroImages, govPortrait }) {
 
               <div className="absolute bottom-8 left-8 z-30">
                 <p className="text-white font-black text-3xl tracking-tight">Buhari AbdulFatai</p>
-                <p className="text-emerald-500 font-bold uppercase tracking-widest text-sm">For Governor 2026</p>
+                <p className="text-emerald-500 font-bold uppercase tracking-widest text-sm">For Governor 2027</p>
               </div>
             </div>
 
@@ -154,7 +154,7 @@ export default function AboutClientWrapper({ heroImages, govPortrait }) {
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent"></div>
                   <div className="absolute bottom-6 left-6 right-6">
                      <p className="text-emerald-400 font-bold uppercase tracking-widest text-xs mb-1">Official Campaign Portrait</p>
-                     <p className="text-white font-black text-xl">The Aspirant</p>
+                     <p className="text-white font-black text-xl">The Candidate</p>
                   </div>
                 </div>
               </div>
@@ -222,7 +222,7 @@ export default function AboutClientWrapper({ heroImages, govPortrait }) {
       <section className="py-24 bg-slate-950 text-white relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-5xl font-black tracking-tight">The 2026 Agenda</h2>
+            <h2 className="text-3xl md:text-5xl font-black tracking-tight">The 2027 Agenda</h2>
             <p className="text-emerald-500 mt-4 font-bold uppercase tracking-widest text-sm">Four Pillars of Progress</p>
           </div>
 

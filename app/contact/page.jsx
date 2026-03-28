@@ -47,13 +47,13 @@ export default function ContactPage() {
         
         <div className="max-w-7xl mx-auto text-center relative z-10">
           <span className="inline-block py-1.5 px-4 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-500 font-bold tracking-[0.2em] text-xs uppercase mb-6">
-            Official 2026 Campaign Desk
+            Official 2027 Campaign Desk
           </span>
           <h1 className="text-5xl md:text-7xl font-black text-white tracking-tighter uppercase italic leading-tight mb-6">
             Join The <span className="text-emerald-500">Movement</span>
           </h1>
           <p className="mt-4 text-lg md:text-xl text-slate-400 max-w-2xl mx-auto font-medium leading-relaxed">
-            Real change doesn't happen in government offices; it happens in our communities. Send a direct mandate to the Aspirant's team today.
+            Real change doesn't happen in government offices; it happens in our communities. Send a direct mandate to the Candidate's team today.
           </p>
         </div>
       </section>
@@ -66,7 +66,7 @@ export default function ContactPage() {
           <div className="lg:col-span-7 bg-white rounded-[2rem] p-8 md:p-12 shadow-[0_20px_60px_rgb(0,0,0,0.08)] border border-slate-100">
             <div className="mb-8">
               <h2 className="text-2xl font-black text-slate-900 tracking-tight uppercase">Send a Direct Message</h2>
-              <p className="text-slate-500 text-sm mt-2 font-medium">Your input shapes our 2026 policy framework.</p>
+              <p className="text-slate-500 text-sm mt-2 font-medium">Your input shapes our 2027 policy framework.</p>
             </div>
 
             <form onSubmit={handleSubmit} className="space-y-8">
@@ -123,7 +123,7 @@ export default function ContactPage() {
                   className="w-full bg-transparent border-b-2 border-slate-200 py-2 text-slate-900 font-medium focus:outline-none focus:ring-0 focus:border-emerald-600 transition-colors rounded-none px-0 appearance-none cursor-pointer"
                 >
                   <option value="" disabled>Select Reason for Contact</option>
-                  <option value="Volunteer">Volunteer for 2026</option>
+                  <option value="Volunteer">Volunteer for 2027</option>
                   <option value="Policy Suggestion">Policy Suggestion</option>
                   <option value="Media Inquiry">Media Inquiry</option>
                   <option value="Donation/Support">Donation / Support</option>
@@ -192,7 +192,7 @@ export default function ContactPage() {
                       </svg>
                     </div>
                     <div>
-                      <p className="text-slate-900 font-bold text-lg">contact@campaign2026.com</p>
+                      <p className="text-slate-900 font-bold text-lg">contact@campaign2027.com</p>
                       <p className="text-slate-500 text-sm font-medium mt-0.5">Average response: 24 hours</p>
                     </div>
                   </div>

@@ -15,7 +15,8 @@ export default function LoginPage() {
   const [showPassword, setShowPassword] = useState(false);
   
   const router = useRouter();
-
+  console.log(showPassword);
+  
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsLoading(true);
@@ -26,7 +27,8 @@ export default function LoginPage() {
       username,
       password,
     });
-
+    console.log(res);
+    
     if (res?.error) {
       setError('Invalid username or password');
       setIsLoading(false);

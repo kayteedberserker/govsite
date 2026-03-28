@@ -1,13 +1,13 @@
 // app/gallery/page.jsx
 import connectMongo from '@/app/lib/mongodb';
 import MediaItem from '@/app/models/MediaItem';
-import GalleryGrid from '@/app/components/GalleryGrid'; // We will build this below
+import GalleryGrid from '@/app/components/GalleryGrid'; 
 
 export default async function GalleryPage() {
   try {
-    // 1. Fetch data on the server
+    // 1. Fetch ONLY gallery data on the server
     await connectMongo();
-    const rawItems = await MediaItem.find({}).sort({ createdAt: -1 });
+    const rawItems = await MediaItem.find({ category: 'gallery' }).sort({ createdAt: -1 });
     const allItems = JSON.parse(JSON.stringify(rawItems));
 
     if (!allItems || allItems.length === 0) {
