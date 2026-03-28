@@ -100,7 +100,7 @@ export default async function HomePage() {
               <div className="absolute -inset-4 bg-emerald-50 rounded-[3rem] transform -rotate-3 z-0"></div>
               <div className="relative z-10 rounded-3xl overflow-hidden aspect-[4/5] shadow-2xl border border-slate-100">
                 <img 
-                  src="https://res.cloudinary.com/dxqsvqhgl/image/upload/v1774707389/gubernatorial/governor/qd9z3mqi9ex93dhcsyyw.jpg" 
+                  src="https://res.cloudinary.com/dxqsvqhgl/image/upload/v1774707196/gubernatorial/governor/is32n1bxcabiki5hoeue.jpg" 
                   alt="Buhari AbdulFatai" 
                   className="w-full h-full object-cover"
                 />
