@@ -1,8 +1,8 @@
 // app/about/AboutClientWrapper.jsx
 'use client';
 
-import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import { useEffect, useState } from 'react';
 
 const testimonials = [
   {
@@ -33,7 +33,7 @@ export default function AboutClientWrapper({ heroImages, govPortrait }) {
 
   // Auto-play Hero Image Carousel (Crossfade)
   useEffect(() => {
-    if (heroImages.length <= 1) return; 
+    if (heroImages.length <= 1) return;
     const interval = setInterval(() => {
       setCurrentHeroIdx((prev) => (prev + 1) % heroImages.length);
     }, 5000);
@@ -43,11 +43,11 @@ export default function AboutClientWrapper({ heroImages, govPortrait }) {
   // Auto-play Testimonial Carousel
   useEffect(() => {
     if (isHoveringTestimonials) return; // Pause on hover
-    
+
     const interval = setInterval(() => {
       setTestIdx((prev) => (prev + 1) % testimonials.length);
     }, 6000); // Changes every 6 seconds
-    
+
     return () => clearInterval(interval);
   }, [isHoveringTestimonials]);
 
@@ -56,24 +56,24 @@ export default function AboutClientWrapper({ heroImages, govPortrait }) {
 
   return (
     <div className="bg-slate-50 min-h-screen pb-24">
-      
+
       {/* ================= HERO SECTION ================= */}
       <section className="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden bg-slate-950">
         <div className="absolute top-0 right-0 w-full h-full overflow-hidden opacity-20 pointer-events-none z-0">
-          <div className="absolute -top-40 -right-40 w-96 h-96 bg-emerald-600 rounded-full blur-[120px]"></div>
-          <div className="absolute bottom-0 left-20 w-72 h-72 bg-emerald-800 rounded-full blur-[100px]"></div>
+          <div className="absolute -top-40 -right-40 w-96 h-96 bg-[#243465] rounded-full blur-[120px]"></div>
+          <div className="absolute bottom-0 left-20 w-72 h-72 bg-[#172242] rounded-full blur-[100px]"></div>
         </div>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-8 items-center">
-            
+
             <div className="max-w-2xl">
-              <span className="text-emerald-500 font-bold tracking-[0.3em] uppercase text-sm mb-4 block">
+              <span className="text-[#4b66c1] font-bold tracking-[0.3em] uppercase text-sm mb-4 block">
                 Meet The Candidate
               </span>
               <h1 className="text-5xl lg:text-7xl font-black text-white tracking-tighter leading-[1.1] mb-6">
-                A lifetime of <span className="text-emerald-500 italic">service.</span> <br />
-                A vision for <span className="underline decoration-emerald-600 decoration-4 underline-offset-8">tomorrow.</span>
+                A lifetime of <span className="text-[#4b66c1] italic">service.</span> <br />
+                A vision for <span className="underline decoration-[#4b66c1] decoration-4 underline-offset-8">tomorrow.</span>
               </h1>
               <p className="text-lg text-slate-400 leading-relaxed mb-8 max-w-xl">
                 I am not running to be somebody; I am running to do something. Our state stands at a crossroads, and it is time for leadership that prioritizes transparency, economic revival, and the security of every citizen.
@@ -83,28 +83,27 @@ export default function AboutClientWrapper({ heroImages, govPortrait }) {
             {/* Dynamic Hero Portrait Carousel */}
             <div className="relative w-full aspect-[4/5] md:aspect-square lg:aspect-[3/4] rounded-3xl overflow-hidden border border-slate-800 shadow-2xl group">
               <div className="absolute inset-0 bg-slate-800 animate-pulse z-0"></div>
-              
+
               {heroImages.map((src, idx) => (
-                <img 
+                <img
                   key={idx}
-                  src={src} 
-                  alt={`Candidate Portrait ${idx + 1}`} 
-                  className={`absolute inset-0 w-full h-full object-cover transition-all duration-1000 ease-in-out z-10 ${
-                    idx === currentHeroIdx 
+                  src={src}
+                  alt={`Candidate Portrait ${idx + 1}`}
+                  className={`absolute inset-0 w-full h-full object-cover transition-all duration-1000 ease-in-out z-10 ${idx === currentHeroIdx
                       ? 'opacity-80 grayscale-0 scale-100'
                       : 'opacity-0 grayscale scale-105 pointer-events-none'
-                  }`}
+                    }`}
                 />
               ))}
 
               <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent z-20"></div>
-              
+
               {heroImages.length > 1 && (
                 <div className="absolute top-6 right-6 flex gap-2 z-30">
                   {heroImages.map((_, idx) => (
-                    <div 
-                      key={idx} 
-                      className={`h-1.5 rounded-full transition-all duration-500 ${idx === currentHeroIdx ? 'w-6 bg-emerald-500' : 'w-2 bg-white/30'}`}
+                    <div
+                      key={idx}
+                      className={`h-1.5 rounded-full transition-all duration-500 ${idx === currentHeroIdx ? 'w-6 bg-[#4b66c1]' : 'w-2 bg-white/30'}`}
                     />
                   ))}
                 </div>
@@ -112,7 +111,7 @@ export default function AboutClientWrapper({ heroImages, govPortrait }) {
 
               <div className="absolute bottom-8 left-8 z-30">
                 <p className="text-white font-black text-3xl tracking-tight">Buhari AbdulFatai</p>
-                <p className="text-emerald-500 font-bold uppercase tracking-widest text-sm">For Governor 2027</p>
+                <p className="text-[#4b66c1] font-bold uppercase tracking-widest text-sm">For Governor 2027</p>
               </div>
             </div>
 
@@ -124,7 +123,7 @@ export default function AboutClientWrapper({ heroImages, govPortrait }) {
       <section className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
-            
+
             {/* The Text Column */}
             <div className="lg:col-span-7 prose prose-lg prose-slate">
               <h2 className="text-3xl md:text-4xl font-black text-slate-900 mb-8 tracking-tight">Rooted in Oyo State. Built for this moment.</h2>
@@ -135,7 +134,7 @@ export default function AboutClientWrapper({ heroImages, govPortrait }) {
                 Over the past two decades, I have had the distinct honor of serving our great state across multiple capacities—from the House of Representatives to the State Executive Council, and the Senate. I have seen firsthand the incredible potential of our state, but I have also seen where disconnected policies fail our farmers, entrepreneurs, and youth. We don't just need better politicians; we need proven managers of our state's vast resources.
               </p>
 
-              <blockquote className="border-l-4 border-emerald-600 pl-6 py-2 my-12 bg-slate-50 rounded-r-2xl shadow-sm">
+              <blockquote className="border-l-4 border-[#243465] pl-6 py-2 my-12 bg-slate-50 rounded-r-2xl shadow-sm">
                 <p className="text-2xl font-bold text-slate-800 italic leading-snug">
                   "We cannot tax our way to prosperity, nor can we secure our future without investing heavily in the minds of our youth today."
                 </p>
@@ -153,8 +152,8 @@ export default function AboutClientWrapper({ heroImages, govPortrait }) {
                   <img src={govPortrait} alt="Official Portrait" className="w-full h-full object-cover" />
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent"></div>
                   <div className="absolute bottom-6 left-6 right-6">
-                     <p className="text-emerald-400 font-bold uppercase tracking-widest text-xs mb-1">Official Campaign Portrait</p>
-                     <p className="text-white font-black text-xl">The Candidate</p>
+                    <p className="text-[#778ce2] font-bold uppercase tracking-widest text-xs mb-1">Official Campaign Portrait</p>
+                    <p className="text-white font-black text-xl">The Candidate</p>
                   </div>
                 </div>
               </div>
@@ -172,15 +171,15 @@ export default function AboutClientWrapper({ heroImages, govPortrait }) {
             <p className="text-slate-500 mt-4 font-medium uppercase tracking-widest text-sm">Decades of Dedicated Public Service</p>
           </div>
 
-          <div className="relative border-l-2 border-emerald-200 ml-4 md:ml-1/2">
-            
+          <div className="relative border-l-2 border-[#bcc8eb] ml-4 md:ml-1/2">
+
             {/* Timeline Item 1: 2023 - 2027 */}
             <div className="mb-12 relative pl-8 md:pl-0">
-              <div className="hidden md:block absolute left-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-emerald-600 border-4 border-slate-50 mt-1.5 z-10"></div>
-              <div className="md:hidden absolute -left-[9px] w-4 h-4 rounded-full bg-emerald-600 border-4 border-slate-50 mt-1.5"></div>
-              
+              <div className="hidden md:block absolute left-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-[#243465] border-4 border-slate-50 mt-1.5 z-10"></div>
+              <div className="md:hidden absolute -left-[9px] w-4 h-4 rounded-full bg-[#243465] border-4 border-slate-50 mt-1.5"></div>
+
               <div className="md:w-1/2 md:pr-12 md:text-right">
-                <span className="text-emerald-600 font-bold tracking-widest text-sm uppercase">2023 - 2027</span>
+                <span className="text-[#243465] font-bold tracking-widest text-sm uppercase">2023 - 2027</span>
                 <h3 className="text-xl font-black text-slate-900 mt-1 mb-1">Member, House of Senate</h3>
                 <p className="text-slate-500 font-bold text-sm mb-3">Oyo North Senatorial District</p>
                 <p className="text-slate-600 text-sm leading-relaxed">
@@ -191,11 +190,11 @@ export default function AboutClientWrapper({ heroImages, govPortrait }) {
 
             {/* Timeline Item 2: 2019 - 2023 */}
             <div className="mb-12 relative pl-8 md:pl-0 flex justify-end">
-              <div className="hidden md:block absolute left-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-emerald-600 border-4 border-slate-50 mt-1.5 z-10"></div>
-              <div className="md:hidden absolute -left-[9px] w-4 h-4 rounded-full bg-emerald-600 border-4 border-slate-50 mt-1.5"></div>
-              
+              <div className="hidden md:block absolute left-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-[#243465] border-4 border-slate-50 mt-1.5 z-10"></div>
+              <div className="md:hidden absolute -left-[9px] w-4 h-4 rounded-full bg-[#243465] border-4 border-slate-50 mt-1.5"></div>
+
               <div className="md:w-1/2 md:pl-12 text-left">
-                <span className="text-emerald-600 font-bold tracking-widest text-sm uppercase">2019 - 2023</span>
+                <span className="text-[#243465] font-bold tracking-widest text-sm uppercase">2019 - 2023</span>
                 <h3 className="text-xl font-black text-slate-900 mt-1 mb-1">Member, House of Senate</h3>
                 <p className="text-slate-500 font-bold text-sm mb-3">Oyo North Senatorial District</p>
                 <p className="text-slate-600 text-sm leading-relaxed">
@@ -204,13 +203,13 @@ export default function AboutClientWrapper({ heroImages, govPortrait }) {
               </div>
             </div>
 
-             {/* Timeline Item 3: 2015 - 2019 */}
-             <div className="mb-12 relative pl-8 md:pl-0">
-              <div className="hidden md:block absolute left-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-emerald-600 border-4 border-slate-50 mt-1.5 z-10"></div>
-              <div className="md:hidden absolute -left-[9px] w-4 h-4 rounded-full bg-emerald-600 border-4 border-slate-50 mt-1.5"></div>
-              
+            {/* Timeline Item 3: 2015 - 2019 */}
+            <div className="mb-12 relative pl-8 md:pl-0">
+              <div className="hidden md:block absolute left-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-[#243465] border-4 border-slate-50 mt-1.5 z-10"></div>
+              <div className="md:hidden absolute -left-[9px] w-4 h-4 rounded-full bg-[#243465] border-4 border-slate-50 mt-1.5"></div>
+
               <div className="md:w-1/2 md:pr-12 md:text-right">
-                <span className="text-emerald-600 font-bold tracking-widest text-sm uppercase">2015 - 2019</span>
+                <span className="text-[#243465] font-bold tracking-widest text-sm uppercase">2015 - 2019</span>
                 <h3 className="text-xl font-black text-slate-900 mt-1 mb-1">Member, House of Senate</h3>
                 <p className="text-slate-500 font-bold text-sm mb-3">Oyo North Senatorial District</p>
                 <p className="text-slate-600 text-sm leading-relaxed">
@@ -221,11 +220,11 @@ export default function AboutClientWrapper({ heroImages, govPortrait }) {
 
             {/* Timeline Item 4: 2011 - 2015 */}
             <div className="mb-12 relative pl-8 md:pl-0 flex justify-end">
-              <div className="hidden md:block absolute left-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-emerald-600 border-4 border-slate-50 mt-1.5 z-10"></div>
-              <div className="md:hidden absolute -left-[9px] w-4 h-4 rounded-full bg-emerald-600 border-4 border-slate-50 mt-1.5"></div>
-              
+              <div className="hidden md:block absolute left-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-[#243465] border-4 border-slate-50 mt-1.5 z-10"></div>
+              <div className="md:hidden absolute -left-[9px] w-4 h-4 rounded-full bg-[#243465] border-4 border-slate-50 mt-1.5"></div>
+
               <div className="md:w-1/2 md:pl-12 text-left">
-                <span className="text-emerald-600 font-bold tracking-widest text-sm uppercase">2011 - 2015</span>
+                <span className="text-[#243465] font-bold tracking-widest text-sm uppercase">2011 - 2015</span>
                 <h3 className="text-xl font-black text-slate-900 mt-1 mb-1">Honourable Commissioner</h3>
                 <p className="text-slate-500 font-bold text-sm mb-3">Local Government and Chieftaincy Matters, Oyo State</p>
                 <p className="text-slate-600 text-sm leading-relaxed">
@@ -236,11 +235,11 @@ export default function AboutClientWrapper({ heroImages, govPortrait }) {
 
             {/* Timeline Item 5: 2003 - 2007 */}
             <div className="relative pl-8 md:pl-0">
-              <div className="hidden md:block absolute left-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-emerald-600 border-4 border-slate-50 mt-1.5 z-10"></div>
-              <div className="md:hidden absolute -left-[9px] w-4 h-4 rounded-full bg-emerald-600 border-4 border-slate-50 mt-1.5"></div>
-              
+              <div className="hidden md:block absolute left-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-[#243465] border-4 border-slate-50 mt-1.5 z-10"></div>
+              <div className="md:hidden absolute -left-[9px] w-4 h-4 rounded-full bg-[#243465] border-4 border-slate-50 mt-1.5"></div>
+
               <div className="md:w-1/2 md:pr-12 md:text-right">
-                <span className="text-emerald-600 font-bold tracking-widest text-sm uppercase">2003 - 2007</span>
+                <span className="text-[#243465] font-bold tracking-widest text-sm uppercase">2003 - 2007</span>
                 <h3 className="text-xl font-black text-slate-900 mt-1 mb-1">Member, House of Representatives</h3>
                 <p className="text-slate-500 font-bold text-sm mb-3">Ogbomosho North/South/Ori Ire Federal Constituency</p>
                 <p className="text-slate-600 text-sm leading-relaxed">
@@ -258,13 +257,13 @@ export default function AboutClientWrapper({ heroImages, govPortrait }) {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-5xl font-black tracking-tight">The 2027 Agenda</h2>
-            <p className="text-emerald-500 mt-4 font-bold uppercase tracking-widest text-sm">Four Pillars of Progress</p>
+            <p className="text-[#4b66c1] mt-4 font-bold uppercase tracking-widest text-sm">Four Pillars of Progress</p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             <div className="bg-slate-900 border border-slate-800 p-8 rounded-3xl hover:-translate-y-2 transition-transform duration-300">
-              <div className="w-12 h-12 bg-emerald-500/10 rounded-2xl flex items-center justify-center mb-6">
-                <svg className="w-6 h-6 text-emerald-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <div className="w-12 h-12 bg-[#4b66c1]/10 rounded-2xl flex items-center justify-center mb-6">
+                <svg className="w-6 h-6 text-[#4b66c1]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
                 </svg>
               </div>
@@ -275,8 +274,8 @@ export default function AboutClientWrapper({ heroImages, govPortrait }) {
             </div>
 
             <div className="bg-slate-900 border border-slate-800 p-8 rounded-3xl hover:-translate-y-2 transition-transform duration-300">
-              <div className="w-12 h-12 bg-emerald-500/10 rounded-2xl flex items-center justify-center mb-6">
-                <svg className="w-6 h-6 text-emerald-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <div className="w-12 h-12 bg-[#4b66c1]/10 rounded-2xl flex items-center justify-center mb-6">
+                <svg className="w-6 h-6 text-[#4b66c1]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 14l9-5-9-5-9 5 9 5z" />
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 21l9-5-9-5-9 5 9 5z" />
                 </svg>
@@ -288,8 +287,8 @@ export default function AboutClientWrapper({ heroImages, govPortrait }) {
             </div>
 
             <div className="bg-slate-900 border border-slate-800 p-8 rounded-3xl hover:-translate-y-2 transition-transform duration-300">
-              <div className="w-12 h-12 bg-emerald-500/10 rounded-2xl flex items-center justify-center mb-6">
-                <svg className="w-6 h-6 text-emerald-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <div className="w-12 h-12 bg-[#4b66c1]/10 rounded-2xl flex items-center justify-center mb-6">
+                <svg className="w-6 h-6 text-[#4b66c1]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
                 </svg>
               </div>
@@ -300,8 +299,8 @@ export default function AboutClientWrapper({ heroImages, govPortrait }) {
             </div>
 
             <div className="bg-slate-900 border border-slate-800 p-8 rounded-3xl hover:-translate-y-2 transition-transform duration-300">
-              <div className="w-12 h-12 bg-emerald-500/10 rounded-2xl flex items-center justify-center mb-6">
-                <svg className="w-6 h-6 text-emerald-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <div className="w-12 h-12 bg-[#4b66c1]/10 rounded-2xl flex items-center justify-center mb-6">
+                <svg className="w-6 h-6 text-[#4b66c1]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
                 </svg>
               </div>
@@ -317,13 +316,13 @@ export default function AboutClientWrapper({ heroImages, govPortrait }) {
       {/* ================= DYNAMIC TESTIMONIAL CAROUSEL ================= */}
       <section className="py-24 bg-white overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          
+
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-5xl font-black text-slate-900 tracking-tight">Voices of the People</h2>
-            <p className="text-emerald-600 mt-4 font-bold uppercase tracking-widest text-sm">What community leaders are saying</p>
+            <p className="text-[#243465] mt-4 font-bold uppercase tracking-widest text-sm">What community leaders are saying</p>
           </div>
 
-          <div 
+          <div
             className="relative w-full max-w-4xl mx-auto h-[350px] md:h-[300px] flex items-center justify-center"
             onMouseEnter={() => setIsHoveringTestimonials(true)}
             onMouseLeave={() => setIsHoveringTestimonials(false)}
@@ -334,29 +333,28 @@ export default function AboutClientWrapper({ heroImages, govPortrait }) {
               else if (idx === (testIdx - 1 + testimonials.length) % testimonials.length) position = 'prev';
 
               return (
-                <div 
+                <div
                   key={test.id}
-                  className={`absolute w-full px-4 md:px-12 transition-all duration-700 ease-[cubic-bezier(0.25,1,0.5,1)] ${
-                    position === 'active' 
-                      ? 'opacity-100 scale-100 translate-x-0 z-20' 
-                      : position === 'prev' 
+                  className={`absolute w-full px-4 md:px-12 transition-all duration-700 ease-[cubic-bezier(0.25,1,0.5,1)] ${position === 'active'
+                      ? 'opacity-100 scale-100 translate-x-0 z-20'
+                      : position === 'prev'
                         ? 'opacity-0 scale-90 -translate-x-[50%] blur-sm z-10 pointer-events-none'
                         : 'opacity-0 scale-90 translate-x-[50%] blur-sm z-10 pointer-events-none'
-                  }`}
+                    }`}
                 >
                   <div className="bg-slate-900 rounded-3xl p-8 md:p-12 shadow-2xl border border-slate-800 relative text-center">
-                    <div className="absolute top-4 left-1/2 -translate-x-1/2 text-emerald-500/10">
+                    <div className="absolute top-4 left-1/2 -translate-x-1/2 text-[#4b66c1]/10">
                       <svg className="w-24 h-24" fill="currentColor" viewBox="0 0 24 24">
                         <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
                       </svg>
                     </div>
-                    
+
                     <p className="relative z-10 text-lg md:text-2xl text-slate-300 font-medium italic leading-relaxed mb-8">
                       "{test.quote}"
                     </p>
                     <div className="relative z-10">
                       <p className="text-white font-black text-xl">{test.name}</p>
-                      <p className="text-emerald-500 text-sm font-bold uppercase tracking-widest mt-1">{test.role}</p>
+                      <p className="text-[#4b66c1] text-sm font-bold uppercase tracking-widest mt-1">{test.role}</p>
                     </div>
                   </div>
                 </div>
@@ -367,7 +365,7 @@ export default function AboutClientWrapper({ heroImages, govPortrait }) {
           {/* Premium Control Pod */}
           <div className="flex justify-center mt-12 relative z-30">
             <div className="inline-flex items-center bg-white p-2 rounded-full shadow-[0_8px_30px_rgb(0,0,0,0.08)] border border-slate-100">
-              <button 
+              <button
                 onClick={prevTestimonial}
                 className="group flex items-center gap-3 px-6 py-3 rounded-full text-slate-600 font-bold uppercase tracking-widest text-xs hover:bg-slate-50 hover:text-slate-900 transition-all duration-300 active:scale-95"
               >
@@ -375,9 +373,9 @@ export default function AboutClientWrapper({ heroImages, govPortrait }) {
                 Prev
               </button>
               <div className="w-px h-6 bg-slate-200 mx-2"></div>
-              <button 
+              <button
                 onClick={nextTestimonial}
-                className="group flex items-center gap-3 px-8 py-3 rounded-full bg-slate-900 text-white font-bold uppercase tracking-widest text-xs hover:bg-emerald-600 transition-all duration-300 shadow-md active:scale-95"
+                className="group flex items-center gap-3 px-8 py-3 rounded-full bg-slate-900 text-white font-bold uppercase tracking-widest text-xs hover:bg-[#243465] transition-all duration-300 shadow-md active:scale-95"
               >
                 Next
                 <svg className="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
@@ -394,9 +392,9 @@ export default function AboutClientWrapper({ heroImages, govPortrait }) {
         <p className="text-slate-600 max-w-2xl mx-auto mb-10 text-lg">
           This campaign isn't about one person. It's about all of us coming together to demand and build a better state. We need your voice, your time, and your energy.
         </p>
-        <Link 
-          href="/contact" 
-          className="inline-flex items-center gap-3 bg-emerald-700 hover:bg-emerald-800 text-white px-10 py-4 rounded-full font-black tracking-widest uppercase transition-all duration-300 shadow-xl shadow-emerald-700/20 active:scale-95 hover:-translate-y-1"
+        <Link
+          href="/contact"
+          className="inline-flex items-center gap-3 bg-[#243465] hover:bg-[#172242] text-white px-10 py-4 rounded-full font-black tracking-widest uppercase transition-all duration-300 shadow-xl shadow-[#243465]/20 active:scale-95 hover:-translate-y-1"
         >
           Join The Campaign
           <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>

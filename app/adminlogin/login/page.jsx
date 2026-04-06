@@ -1,22 +1,21 @@
 // app/login/page.jsx
 'use client';
 
-import { useState } from 'react';
 import { signIn } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
+import { useState } from 'react';
 
 export default function LoginPage() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const [isLoading, setIsLoading] = useState(false);
-  
+
   // NEW: State for toggling password visibility
   const [showPassword, setShowPassword] = useState(false);
-  
+
   const router = useRouter();
-  console.log(showPassword);
-  
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsLoading(true);
@@ -27,8 +26,7 @@ export default function LoginPage() {
       username,
       password,
     });
-    console.log(res);
-    
+
     if (res?.error) {
       setError('Invalid username or password');
       setIsLoading(false);
@@ -41,10 +39,10 @@ export default function LoginPage() {
     <div className="min-h-screen flex items-center justify-center bg-[#f8fafc] p-4 sm:p-6">
       <div className="bg-white w-full max-w-md rounded-3xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-gray-100 overflow-hidden">
         <div className="p-8 sm:p-10">
-          
+
           <div className="mb-8 text-center">
-            <div className="mx-auto h-12 w-12 bg-blue-50 rounded-full flex items-center justify-center mb-4">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6 text-blue-600">
+            <div className="mx-auto h-12 w-12 bg-[#bcc8eb]/30 rounded-full flex items-center justify-center mb-4">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6 text-[#243465]">
                 <path fillRule="evenodd" d="M12 1.5a5.25 5.25 0 00-5.25 5.25v3a3 3 0 00-3 3v6.75a3 3 0 003 3h10.5a3 3 0 003-3v-6.75a3 3 0 00-3-3v-3c0-2.9-2.35-5.25-5.25-5.25zm3.25 8.25v-3a3.25 3.25 0 10-6.5 0v3h6.5z" clipRule="evenodd" />
               </svg>
             </div>
@@ -53,13 +51,13 @@ export default function LoginPage() {
           </div>
 
           <form onSubmit={handleSubmit} className="space-y-5">
-            
+
             {error && (
               <div className="bg-red-50 p-4 rounded-xl border border-red-100">
                 <p className="text-red-600 text-sm font-medium text-center">{error}</p>
               </div>
             )}
-            
+
             <div>
               <label className="block text-sm font-semibold text-gray-700 mb-1.5 ml-1">Username</label>
               <input
@@ -67,11 +65,11 @@ export default function LoginPage() {
                 value={username}
                 onChange={(e) => setUsername(e.target.value)}
                 required
-                className="w-full px-4 py-3.5 rounded-xl border border-gray-200 bg-gray-50 text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-white transition-all duration-200"
+                className="w-full px-4 py-3.5 rounded-xl border border-gray-200 bg-gray-50 text-gray-900 focus:outline-none focus:ring-2 focus:ring-[#4b66c1] focus:bg-white transition-all duration-200"
                 placeholder="Enter your username"
               />
             </div>
-            
+
             <div>
               <label className="block text-sm font-semibold text-gray-700 mb-1.5 ml-1">Password</label>
               <div className="relative">
@@ -80,10 +78,10 @@ export default function LoginPage() {
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                   required
-                  className="w-full px-4 py-3.5 rounded-xl border border-gray-200 bg-gray-50 text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-white transition-all duration-200 pr-12"
+                  className="w-full px-4 py-3.5 rounded-xl border border-gray-200 bg-gray-50 text-gray-900 focus:outline-none focus:ring-2 focus:ring-[#4b66c1] focus:bg-white transition-all duration-200 pr-12"
                   placeholder="••••••••"
                 />
-                
+
                 {/* Password Toggle Button with Inline SVGs */}
                 <button
                   type="button"
@@ -110,19 +108,19 @@ export default function LoginPage() {
               {/* Loading State with Animation */}
               {isLoading ? (
                 <div className="flex justify-center items-center py-3.5 bg-gray-50 rounded-xl border border-gray-200">
-                  <div className="animate-spin rounded-full h-5 w-5 border-t-2 border-b-2 border-blue-600"></div>
-                  <span className="ml-3 text-blue-600 font-semibold text-sm">Authenticating...</span>
+                  <div className="animate-spin rounded-full h-5 w-5 border-t-2 border-b-2 border-[#243465]"></div>
+                  <span className="ml-3 text-[#243465] font-semibold text-sm">Authenticating...</span>
                 </div>
               ) : (
                 <button
                   type="submit"
-                  className="w-full bg-blue-600 text-white font-semibold py-3.5 px-4 rounded-xl shadow-md shadow-blue-200 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-all duration-200 active:scale-[0.98]"
+                  className="w-full bg-[#243465] text-white font-semibold py-3.5 px-4 rounded-xl shadow-md shadow-[#243465]/20 hover:bg-[#172242] focus:outline-none focus:ring-2 focus:ring-[#4b66c1] focus:ring-offset-2 transition-all duration-200 active:scale-[0.98]"
                 >
                   Sign In
                 </button>
               )}
             </div>
-            
+
           </form>
         </div>
       </div>

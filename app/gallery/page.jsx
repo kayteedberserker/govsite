@@ -1,7 +1,7 @@
 // app/gallery/page.jsx
+import GalleryGrid from '@/app/components/GalleryGrid';
 import connectMongo from '@/app/lib/mongodb';
 import MediaItem from '@/app/models/MediaItem';
-import GalleryGrid from '@/app/components/GalleryGrid'; 
 
 export default async function GalleryPage() {
   try {
@@ -13,7 +13,7 @@ export default async function GalleryPage() {
     if (!allItems || allItems.length === 0) {
       return (
         <div className="bg-slate-950 min-h-screen flex items-center justify-center pt-24">
-          <p className="text-xl text-emerald-500 font-medium italic tracking-widest uppercase">
+          <p className="text-xl text-[#4b66c1] font-medium italic tracking-widest uppercase">
             Awaiting Media Assets
           </p>
         </div>
@@ -26,9 +26,9 @@ export default async function GalleryPage() {
         {/* Simple, sleek header inside the page container */}
         <div className="max-w-[1920px] mx-auto px-4 sm:px-8 mb-16">
           <h1 className="text-5xl md:text-7xl font-black text-white tracking-tighter uppercase italic leading-none">
-            The <span className="text-emerald-500">Gallery</span>
+            The <span className="text-[#4b66c1]">Gallery</span>
           </h1>
-          <div className="h-1 w-24 bg-emerald-500 mt-6 rounded-full" />
+          <div className="h-1 w-24 bg-[#4b66c1] mt-6 rounded-full" />
         </div>
 
         {/* The Interactive Grid Component */}
