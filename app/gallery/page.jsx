@@ -1,4 +1,7 @@
 // app/gallery/page.jsx
+// Rebuild the homepage in the background every 30 seconds if data changes
+export const revalidate = 30;
+
 import GalleryGrid from '@/app/components/GalleryGrid';
 import connectMongo from '@/app/lib/mongodb';
 import MediaItem from '@/app/models/MediaItem';
@@ -37,6 +40,10 @@ export default async function GalleryPage() {
     );
   } catch (error) {
     console.error("Database Error:", error);
-    return <div className="p-20 text-center text-white bg-slate-950 h-screen">Error loading gallery. Check console.</div>;
+    return (
+      <div className="p-20 text-center text-white bg-slate-950 h-screen">
+        Error loading gallery. Check console.
+      </div>
+    );
   }
 }

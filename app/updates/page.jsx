@@ -3,9 +3,9 @@ import connectMongo from '@/app/lib/mongodb';
 import Article from '@/app/models/Article';
 import Link from 'next/link';
 
-// ISR Configuration: Rebuild the page in the background every 60 seconds 
+// ISR Configuration: Rebuild the page in the background every 30 seconds 
 // if a new article is published. Keeps the site blazing fast.
-export const revalidate = 60;
+export const revalidate = 30;
 
 // Helper function to format the date nicely
 const formatDate = (dateString) => {

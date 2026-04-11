@@ -7,6 +7,39 @@ export default function ContactPage() {
   const [formData, setFormData] = useState({ name: '', email: '', subject: '', message: '' });
   const [status, setStatus] = useState({ loading: false, success: false, error: '' });
 
+  // Social media configuration matching your Footer
+  const socialLinks = [
+    {
+      platform: 'Facebook',
+      href: 'https://www.facebook.com/share/1E38KRKSCJ/',
+      icon: (
+        <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" />
+        </svg>
+      ),
+    },
+    {
+      platform: 'Twitter',
+      href: '#',
+      icon: (
+        <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+        </svg>
+      ),
+    },
+    {
+      platform: 'Instagram',
+      href: '#',
+      icon: (
+        <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24">
+          <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+          <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+          <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+        </svg>
+      ),
+    },
+  ];
+
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
@@ -62,7 +95,7 @@ export default function ContactPage() {
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-24 relative z-20 pb-24">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
 
-          {/* LEFT: The Form (Takes up 7 columns, overlaps the dark header) */}
+          {/* LEFT: The Form */}
           <div className="lg:col-span-7 bg-white rounded-[2rem] p-8 md:p-12 shadow-[0_20px_60px_rgb(0,0,0,0.08)] border border-slate-100">
             <div className="mb-8">
               <h2 className="text-2xl font-black text-slate-900 tracking-tight uppercase">Send a Direct Message</h2>
@@ -84,7 +117,6 @@ export default function ContactPage() {
               )}
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                {/* Input Group: Stripped of default outlines, styled with clean bottom borders */}
                 <div className="relative group">
                   <label className="text-xs font-bold text-slate-400 uppercase tracking-widest mb-1 block transition-colors group-focus-within:text-[#4b66c1]">Full Name</label>
                   <input
@@ -93,7 +125,6 @@ export default function ContactPage() {
                     value={formData.name}
                     onChange={handleChange}
                     required
-                    // The fix: outline-none and ring-0 strip the ugly browser defaults
                     className="w-full bg-transparent border-b-2 border-slate-200 py-2 text-slate-900 font-medium focus:outline-none focus:ring-0 focus:border-[#4b66c1] transition-colors rounded-none px-0"
                     placeholder="Citizen Name"
                   />
@@ -163,7 +194,7 @@ export default function ContactPage() {
             </form>
           </div>
 
-          {/* RIGHT: Contact Info (Takes up 5 columns, sits lower) */}
+          {/* RIGHT: Contact Info */}
           <div className="lg:col-span-5 lg:pl-8 lg:pt-16">
             <div className="space-y-10">
 
@@ -213,10 +244,16 @@ export default function ContactPage() {
 
               <div className="pt-6 border-t border-slate-200">
                 <h3 className="text-xs font-black text-slate-400 uppercase tracking-widest mb-4">Official Channels</h3>
-                <div className="flex gap-3">
-                  {['Twitter', 'Facebook', 'Instagram', 'LinkedIn'].map((social) => (
-                    <a key={social} href="#" className="w-10 h-10 flex items-center justify-center rounded-xl bg-slate-900 text-white hover:bg-[#4b66c1] hover:-translate-y-1 transition-all duration-300 shadow-md">
-                      <span className="text-[10px] font-bold uppercase">{social.substring(0, 2)}</span>
+                <div className="flex gap-4">
+                  {socialLinks.map((item) => (
+                    <a
+                      key={item.platform}
+                      href={item.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-12 h-12 flex items-center justify-center rounded-2xl bg-slate-950 text-white hover:bg-[#4b66c1] hover:-translate-y-1 transition-all duration-300 shadow-lg"
+                    >
+                      {item.icon}
                     </a>
                   ))}
                 </div>

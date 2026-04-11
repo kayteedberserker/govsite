@@ -5,8 +5,8 @@ import Article from '@/app/models/Article';
 import MediaItem from '@/app/models/MediaItem';
 import Link from 'next/link';
 
-// Rebuild the homepage in the background every 60 seconds if data changes
-export const revalidate = 60;
+// Rebuild the homepage in the background every 30 seconds if data changes
+export const revalidate = 30;
 
 export default async function HomePage() {
   let latestNews = [];

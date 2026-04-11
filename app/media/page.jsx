@@ -3,8 +3,9 @@ import connectMongo from '@/app/lib/mongodb';
 import MediaItem from '@/app/models/MediaItem';
 import MediaClientWrapper from './MediaClientWrapper';
 
-// Rebuild page every 60 seconds if new media is uploaded
-export const revalidate = 60;
+// Rebuild the homepage in the background every 30 seconds if data changes
+export const revalidate = 30;
+
 
 export default async function MediaPage() {
   // Default fallback if you haven't uploaded a portrait yet
@@ -12,10 +13,10 @@ export default async function MediaPage() {
 
   try {
     await connectMongo();
-    
+
     // Fetch the latest Official Governor Portrait
     const rawPortrait = await MediaItem.findOne({ category: 'governor' }).sort({ createdAt: -1 });
-    
+
     if (rawPortrait) {
       headshotUrl = rawPortrait.imageUrl;
     }
@@ -32,7 +33,7 @@ export default async function MediaPage() {
 
   // For the logo, we assume you will place a 'logo-pack.zip' in your public folder,
   // OR you can upload a zip to the "General File Hosting" in your Admin panel and paste the URL here later.
-  const logoUrl = "/logo.png"; 
+  const logoUrl = "/logo.png";
 
   return <MediaClientWrapper headshotUrl={downloadUrl} logoUrl={logoUrl} />;
 }
