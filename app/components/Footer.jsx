@@ -19,7 +19,7 @@ export default function Footer() {
     },
     {
       platform: 'Twitter',
-      href: '#',
+      href: 'https://x.com/BuhariOyoNorth',
       // X (Twitter) Icon
       icon: (
         <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
